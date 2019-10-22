@@ -1,45 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-     <link rel="csslink" href="styles.css">
+  <title>Test AJAX page</title>
+  <link rel="stylesheet" type="text/css" href="./lab_styles.css">
 </head>
+
 <body>
-
-<div id= "fullname">
-  <h1>Noah Susskind</h1>
-</div>
-
-<div>
-    <div class="number2"> </div>
-        
-        
-        <div class= "history">
-            
-            <h2>WebMD New York, New York</h3>
-            <p>From June to August 2019, I was a marketing solution intern which helped me grow as a young marketer. I had the possibility to see what new clients WebMD can promote on their website. I had the pleasure of learning about corporate politics. During the summer I Participate in the planning, execution, reporting and optimization of digital marketing campaigns designed to achieve corporate business goals.Support the marketing team in administrative duties such as, scheduling meetings, note transcription, photo and graphic library maintenance</p>
-            
-                        
-            <h2>Pixellot Tel Aviiv, Israel</h3>
-            <p>The summer of 2018 I worked as a marketing inter that helped grow a start up company. Pixellot is an automative production company for low tiers of sports. I had the pleasure of being their first intern and helped market their product to many new clients. </p>
-            
-                        
-            <h2>16W Marketing East Rutherford, NJ</h3>
-            <p>During the summer of 2017 I worked as a marketing intern for a sports marketing agency. I was able to see certain professional athletes market their brand in many different ways. I learned that its not always about how much money you make but the image that you build.</p>
-        <div class= "picture">
-            <a href="https://imgbb.com/">
-            <img src="https://i.ibb.co/ZBTBsx4/pulp.jpg" alt="pulp">
-        </a>
-        <div class="comment">When I graduate I would like to pursue a career in production. I want to get involved behind the scenes and even infront of the camera. If that doesn't work out i'll be marketing for a technology company if that doesn't work out</div>
-</div>
-</div>
-</div>    
-         
-               
-        
-
-
- 
-
-
+  <div class="container">
+    <div class="wrapper">
+      <div class="header">Test AJAX page</div>
+      <button class="button" onclick="loadData()">Load Some JSON</button>
+      <div class="content"></div>
+      <div class="footer"></div>
+    </div>
+  </div>
+  <script>
+    function loadData() {
+      fetch('ajax_sample.json')
+        .then(res => res.json())
+        .then(res => res.map(c => c.code))
+        .then(codes => document.querySelector(".content").innerText = codes);
+    }
+  </script>
 </body>
+
 </html>
